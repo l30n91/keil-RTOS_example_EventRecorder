@@ -1,0 +1,142 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.37.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: leonardo buonaiuto, leo, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.37.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.18
+Assembler:       Armasm.exe V6.18
+Linker/Locator:  ArmLink.exe V6.18
+Library Manager: ArmAr.exe V6.18
+Hex Converter:   FromElf.exe V6.18
+CPU DLL:         SARMCM3.DLL V5.37.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      UL2CM3.DLL V1.164.7.0
+Dialog DLL:      TCM.DLL V1.56.1.0
+ 
+<h2>Project:</h2>
+C:\Users\bl91\Desktop\Keil-RTOS_example_v3\Examples\Blinky\Blinky.uvprojx
+Project File Date:  01/04/2026
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'Simulator'
+".\Objects\Blinky.axf" - 0 Error(s), 0 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                https://www.keil.com/pack/ARM.CMSIS.6.0.0.pack
+                ARM.CMSIS.6.0.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: OS Tick Version: 1.0.1
+   * Component: RTOS2 Version: 2.3.0
+   * Component: CORE Version: 6.0.0
+   * Component: SysTick Version: 1.0.5
+
+Package Vendor: ARM
+                https://www.keil.com/pack/ARM.CMSIS-Compiler.2.0.0.pack
+                ARM.CMSIS-Compiler.2.0.0
+                CMSIS Compiler extensions for Arm Compiler, GCC, Clang, and IAR Compiler
+   * Component: STDOUT Version: 1.0.0
+   * Component: CORE Version: 1.0.0
+   * Component: Event Recorder Version: 1.0.0
+
+Package Vendor: ARM
+                https://www.keil.com/pack/ARM.CMSIS-RTX.5.9.0.pack
+                ARM.CMSIS-RTX.5.9.0
+                RTX RTOS implementation of CMSIS-RTOS2 API
+   * Component: Keil RTX5 Variant: Source Version: 5.9.0
+
+Package Vendor: ARM
+                https://www.keil.com/pack/ARM.CMSIS-View.1.2.0.pack
+                ARM.CMSIS-View.1.2.0
+                Debugger visualization of software events and statistics
+   * Component: Event Recorder Variant: DAP Version: 1.6.0
+
+Package Vendor: ARM
+                https://www.keil.com/pack/ARM.Cortex_DFP.1.0.0.pack
+                ARM.Cortex_DFP.1.0.0
+                ARM Cortex Pseudo Device Family Pack
+   * Component: Startup Variant: C Startup Version: 2.2.0
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/CMSIS
+  ./RTE/CMSIS-View
+  ./RTE/_Simulator
+  C:/Users/bl91/AppData/Local/Arm/Packs/ARM/CMSIS-Compiler/2.0.0/include
+  C:/Users/bl91/AppData/Local/Arm/Packs/ARM/CMSIS-RTX/5.9.0/Include
+  C:/Users/bl91/AppData/Local/Arm/Packs/ARM/CMSIS-View/1.2.0/EventRecorder/Include
+  C:/Users/bl91/AppData/Local/Arm/Packs/ARM/CMSIS/6.0.0/CMSIS/Core/Include
+  C:/Users/bl91/AppData/Local/Arm/Packs/ARM/CMSIS/6.0.0/CMSIS/RTOS2/Include
+  C:/Users/bl91/AppData/Local/Arm/Packs/ARM/Cortex_DFP/1.0.0/Device/ARMCM4/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ::CMSIS-Compiler:STDOUT:1.0.0 (API)
+      Include file:  include/retarget_stdout.h
+
+   * Component: ::CMSIS:OS Tick:1.0.1 (API)
+      Include file:  CMSIS/RTOS2/Include/os_tick.h
+
+   * Component: ::CMSIS:RTOS2:2.3.0 (API)
+      Include file:  CMSIS/RTOS2/Include/cmsis_os2.h
+
+   * Component: ARM::CMSIS-Compiler:CORE:1.0.0
+      Source file:   source/armcc/retarget_io.c
+
+   * Component: ARM::CMSIS-Compiler:STDOUT:Event Recorder:1.0.0
+      Source file:   source/stdout_evr.c
+
+   * Component: ARM::CMSIS-View:Event Recorder:DAP:1.6.0
+      Include file:  EventRecorder/Config/EventRecorderConf.h
+      Include file:  EventRecorder/Include/EventRecorder.h
+      Source file:   EventRecorder/Source/EventRecorder.c
+
+   * Component: ARM::CMSIS:CORE:6.0.0
+
+   * Component: ARM::CMSIS:OS Tick:SysTick:1.0.5
+      Source file:   CMSIS/RTOS2/Source/os_systick.c
+
+   * Component: ARM::CMSIS:RTOS2:Keil RTX5:Source:5.9.0
+      Include file:  Include/rtx_os.h
+      Include file:  Config/RTX_Config.h
+      Source file:   Source/rtx_mempool.c
+      Source file:   Template/Timer.c
+      Source file:   Source/rtx_system.c
+      Source file:   Source/GCC/irq_armv7m.S
+      Source file:   Source/rtx_timer.c
+      Source file:   Template/MemPool.c
+      Source file:   Source/rtx_mutex.c
+      Source file:   Template/svc_user.c
+      Source file:   Config/RTX_Config.c
+      Source file:   Source/rtx_evr.c
+      Source file:   Template/Thread.c
+      Source file:   Template/Mutex.c
+      Source file:   Source/rtx_semaphore.c
+      Source file:   Source/rtx_kernel.c
+      Source file:   Template/main.c
+      Source file:   Template/MsgQueue.c
+      Source file:   Template/Semaphore.c
+      Source file:   Source/rtx_delay.c
+      Source file:   Template/Events.c
+      Source file:   Source/rtx_evflags.c
+      Source file:   Source/rtx_memory.c
+      Source file:   Source/rtx_thread.c
+      Source file:   Source/rtx_msgqueue.c
+      Source file:   Source/rtx_lib.c
+
+   * Component: ARM::Device:Startup:C Startup:2.2.0
+      Source file:   Device/ARMCM4/Source/startup_ARMCM4.c
+      Source file:   Device/ARMCM4/Source/system_ARMCM4.c
+      Include file:  Device/ARMCM4/Include/ARMCM4.h
+Build Time Elapsed:  00:00:00
+</pre>
+</body>
+</html>
