@@ -60,12 +60,12 @@ void Switch_Off (unsigned char led) {
  *      Function 'signal_func' called from multiple threads
  *---------------------------------------------------------------------------*/
 void signal_func (osThreadId_t tid)  {
-  osThreadFlagsSet(tid_clock, 0x0100);      /* set signal to clock thread    */
-  osDelay(500);                             /* delay 500ms                   */
-  osThreadFlagsSet(tid_clock, 0x0100);      /* set signal to clock thread    */
-  osDelay(500);                             /* delay 500ms                   */
-  osThreadFlagsSet(tid, 0x0001);            /* set signal to thread 'thread' */
-  osDelay(500);                             /* delay 500ms                   */
+  //osThreadFlagsSet(tid_clock, 0x0100);      /* set signal to clock thread    */
+  //osDelay(500);                             /* delay 500ms                   */
+  //osThreadFlagsSet(tid_clock, 0x0100);      /* set signal to clock thread    */
+  //osDelay(500);                             /* delay 500ms                   */
+  osThreadFlagsSet(tid, 0x0001);              /* set signal to thread 'thread' */
+  //osDelay(500);                             /* delay 500ms                   */
 }
 
 /*----------------------------------------------------------------------------
@@ -74,11 +74,11 @@ void signal_func (osThreadId_t tid)  {
 void phaseA (void *argument) {
   for (;;) {
     osThreadFlagsWait(0x0001, osFlagsWaitAny ,osWaitForever);    /* wait for an event flag 0x0001 */
-    Switch_On(0);
     g_phases.phaseA = 1;
-    signal_func(tid_phaseB);                                     /* call common signal function   */
+    osDelay(1500);
+    signal_func(tid_phaseB);                                     /*trigger per B, non forza un context switch immediato, viene prima abbassato A e appena può la cpu lancia B*/
     g_phases.phaseA = 0;
-    Switch_Off(0);
+    osDelay(1500);
   }
 }
 
@@ -88,39 +88,11 @@ void phaseA (void *argument) {
 void phaseB (void *argument) {
   for (;;) {
     osThreadFlagsWait(0x0001, osFlagsWaitAny, osWaitForever);    /* wait for an event flag 0x0001 */
-    Switch_On(1);
-    g_phases.phaseB = 1;
-    signal_func(tid_phaseC);                /* call common signal function   */
-    g_phases.phaseB = 0;
-    Switch_Off(1);
-  }
-}
-
-/*----------------------------------------------------------------------------
- *      Thread 3 'phaseC': Phase C output
- *---------------------------------------------------------------------------*/
-void phaseC (void *argument) {
-  for (;;) {
-    osThreadFlagsWait(0x0001, osFlagsWaitAny, osWaitForever);    /* wait for an event flag 0x0001 */
-    Switch_On(2);
-    g_phases.phaseC = 1;
-    signal_func(tid_phaseD);                /* call common signal function   */
-    g_phases.phaseC = 0;
-    Switch_Off(2);
-  }
-}
-
-/*----------------------------------------------------------------------------
- *      Thread 4 'phaseD': Phase D output
- *---------------------------------------------------------------------------*/
-void phaseD (void *argument) {
-  for (;;) {
-    osThreadFlagsWait(0x0001, osFlagsWaitAny, osWaitForever);    /* wait for an event flag 0x0001 */
-    Switch_On(3);
-    g_phases.phaseD = 1;
+    g_phases.phaseB = 1;  
+    osDelay(1500);
     signal_func(tid_phaseA);                /* call common signal function   */
-    g_phases.phaseD = 0;
-    Switch_Off(3);
+    g_phases.phaseB = 0;
+    osDelay(1500);
   }
 }
 
@@ -141,9 +113,9 @@ void app_main (void *argument) {
 
   tid_phaseA = osThreadNew(phaseA, NULL, NULL);
   tid_phaseB = osThreadNew(phaseB, NULL, NULL);
-  tid_phaseC = osThreadNew(phaseC, NULL, NULL);
-  tid_phaseD = osThreadNew(phaseD, NULL, NULL);
-  tid_clock  = osThreadNew(clock,  NULL, NULL);
+  //tid_phaseC = osThreadNew(phaseC, NULL, NULL);
+  //tid_phaseD = osThreadNew(phaseD, NULL, NULL);
+  //tid_clock  = osThreadNew(clock,  NULL, NULL);
 
   osThreadFlagsSet(tid_phaseA, 0x0001);     /* set signal to phaseA thread   */
 

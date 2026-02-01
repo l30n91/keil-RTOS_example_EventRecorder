@@ -21,12 +21,15 @@ Target DLL:      UL2CM3.DLL V1.164.7.0
 Dialog DLL:      TCM.DLL V1.56.1.0
  
 <h2>Project:</h2>
-C:\Users\bl91\Desktop\Keil-RTOS_example_v3\Examples\Blinky\Blinky.uvprojx
+C:\Users\bl91\Desktop\Keil-RTOS_example_EventRecorder\Examples\Blinky\Blinky.uvprojx
 Project File Date:  01/04/2026
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Simulator'
+compiling Blinky.c...
+linking...
+Program Size: Code=9148 RO-data=1296 RW-data=168 ZI-data=10792  
 ".\Objects\Blinky.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -95,9 +98,9 @@ Package Vendor: ARM
       Source file:   source/stdout_evr.c
 
    * Component: ARM::CMSIS-View:Event Recorder:DAP:1.6.0
-      Include file:  EventRecorder/Config/EventRecorderConf.h
       Include file:  EventRecorder/Include/EventRecorder.h
       Source file:   EventRecorder/Source/EventRecorder.c
+      Include file:  EventRecorder/Config/EventRecorderConf.h
 
    * Component: ARM::CMSIS:CORE:6.0.0
 
@@ -107,36 +110,36 @@ Package Vendor: ARM
    * Component: ARM::CMSIS:RTOS2:Keil RTX5:Source:5.9.0
       Include file:  Include/rtx_os.h
       Include file:  Config/RTX_Config.h
-      Source file:   Source/rtx_mempool.c
-      Source file:   Template/Timer.c
-      Source file:   Source/rtx_system.c
-      Source file:   Source/GCC/irq_armv7m.S
-      Source file:   Source/rtx_timer.c
-      Source file:   Template/MemPool.c
-      Source file:   Source/rtx_mutex.c
-      Source file:   Template/svc_user.c
-      Source file:   Config/RTX_Config.c
-      Source file:   Source/rtx_evr.c
-      Source file:   Template/Thread.c
-      Source file:   Template/Mutex.c
       Source file:   Source/rtx_semaphore.c
       Source file:   Source/rtx_kernel.c
+      Source file:   Config/RTX_Config.c
       Source file:   Template/main.c
-      Source file:   Template/MsgQueue.c
       Source file:   Template/Semaphore.c
-      Source file:   Source/rtx_delay.c
-      Source file:   Template/Events.c
-      Source file:   Source/rtx_evflags.c
-      Source file:   Source/rtx_memory.c
       Source file:   Source/rtx_thread.c
+      Source file:   Template/Mutex.c
+      Source file:   Source/rtx_mempool.c
       Source file:   Source/rtx_msgqueue.c
+      Source file:   Source/rtx_memory.c
       Source file:   Source/rtx_lib.c
+      Source file:   Template/Events.c
+      Source file:   Source/rtx_timer.c
+      Source file:   Source/rtx_system.c
+      Source file:   Source/GCC/irq_armv7m.S
+      Source file:   Template/MemPool.c
+      Source file:   Source/rtx_mutex.c
+      Source file:   Template/MsgQueue.c
+      Source file:   Template/Thread.c
+      Source file:   Template/svc_user.c
+      Source file:   Source/rtx_delay.c
+      Source file:   Source/rtx_evflags.c
+      Source file:   Template/Timer.c
+      Source file:   Source/rtx_evr.c
 
    * Component: ARM::Device:Startup:C Startup:2.2.0
-      Source file:   Device/ARMCM4/Source/startup_ARMCM4.c
       Source file:   Device/ARMCM4/Source/system_ARMCM4.c
       Include file:  Device/ARMCM4/Include/ARMCM4.h
-Build Time Elapsed:  00:00:00
+      Source file:   Device/ARMCM4/Source/startup_ARMCM4.c
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>
