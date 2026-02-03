@@ -60,12 +60,7 @@ void Switch_Off (unsigned char led) {
  *      Function 'signal_func' called from multiple threads
  *---------------------------------------------------------------------------*/
 void signal_func (osThreadId_t tid)  {
-  //osThreadFlagsSet(tid_clock, 0x0100);      /* set signal to clock thread    */
-  //osDelay(500);                             /* delay 500ms                   */
-  //osThreadFlagsSet(tid_clock, 0x0100);      /* set signal to clock thread    */
-  //osDelay(500);                             /* delay 500ms                   */
   osThreadFlagsSet(tid, 0x0001);              /* set signal to thread 'thread' */
-  //osDelay(500);                             /* delay 500ms                   */
 }
 
 /*----------------------------------------------------------------------------
@@ -73,11 +68,11 @@ void signal_func (osThreadId_t tid)  {
  *---------------------------------------------------------------------------*/
 void phaseA (void *argument) {
   for (;;) {
-    osThreadFlagsWait(0x0001, osFlagsWaitAny ,osWaitForever);    /* wait for an event flag 0x0001 */
-    g_phases.phaseA = 1;
-    osDelay(1500);
-    signal_func(tid_phaseB);                                     /*trigger per B, non forza un context switch immediato, viene prima abbassato A e appena può la cpu lancia B*/
-    g_phases.phaseA = 0;
+    osThreadFlagsWait(0x0001, osFlagsWaitAny ,osWaitForever); /*informa la cpu che il flag è stato soddisfatto e rimette di nuovo il task in attesa dell'evento 0x0001 quindi se risetto la flag A è di nuovo chiamabile*/
+    g_phases.phaseA = 1; /*alzo il segnale*/
+    osDelay(1500); /*A (BLOCKED) per 1500ms*/
+    signal_func(tid_phaseB); /*triggero B NON AVVIENE CONTEXT SWITCHING IMMEDIATO ci vorrà un pò di tempo per cui prima che B venga chiamato viene prima abbassato A*/
+    g_phases.phaseA = 0; /* A basso*/
     osDelay(1500);
   }
 }
